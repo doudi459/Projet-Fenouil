@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <input type="text" id="Prix" class="form-control" placeholder="Prix de vent" required="required">
+                                            <input type="number" id="Prix" class="form-control" placeholder="Prix de vent" required="required">
                                             <label for="Prix de vent">Prix de vent</label>
                                         </div>
                                     </div>

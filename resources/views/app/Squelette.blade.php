@@ -164,7 +164,7 @@
                         @if(Auth::user()->Fonction == 'Responsable du Routage')
                         <li> <a class="has-arrow " href="#" aria-expanded="false" style="background-color: #1e1e1e;" ><i class="fa fa-file"></i><span class="hide-menu">Publicité</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="page.php">Toutes les Pubs</a></li>
+                                <li><a href="">Toutes les Pubs</a></li>
                                 <li><a href="ajouterpage.php">nouvelle Publicite</a></li>
 
                             </ul>
@@ -208,7 +208,7 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Generale</a></li>
                                 <li><a href="#">Edition</a></li>
-                                <li><a href="#">Multimedia</a></li>
+
                             </ul>
                         </li>
 

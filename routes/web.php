@@ -24,6 +24,8 @@ Route::get('/Bricolage', function () {
     return view('Bricolage');
 })->name('Bricolage');
 
+
+Route ::resource('/Commande','CommandeController');
 Route ::resource('/allArt','AllArtController');
 Route::resource('/NewArt','ArticleController');
 /*

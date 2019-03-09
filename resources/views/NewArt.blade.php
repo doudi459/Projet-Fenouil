@@ -19,7 +19,7 @@
 
             <div class="from-group">
                 {!! Form::label('Prix','Prix de vente:') !!}
-                {!! Form::text('Prix de vente',null,['class' => 'form-control input-rounded' ,'placeholder' => 'Entrez le prix ici' ]) !!}
+                {!! Form::number('Prix de vente',null,['class' => 'form-control input-rounded' ,'placeholder' => 'Entrez le prix ici' ]) !!}
 
             </div>
 

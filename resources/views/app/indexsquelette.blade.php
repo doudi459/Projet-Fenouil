@@ -14,14 +14,43 @@ session_start();
 <!-- css file -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min1.css">
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="css/responsive.css">
-<!-- REVOLUTION LAYERS STYLES -->
+	<!-- REVOLUTION LAYERS STYLES -->
 <link rel="stylesheet" type="text/css" href="revolution-slider/css/settings.css">
 <link rel="stylesheet" type="text/css" href="revolution-slider/css/layers.css">
 <link rel="stylesheet" type="text/css" href="revolution-slider/css/navigation.css">
 
 
+<style>
+	.label-input100 {
+
+		font-family: Poppins-SemiBold;
+		font-size: 18px;
+		color: #999999;
+		line-height: 1.2;
+		padding-left: 2px;
+
+	}
+	.input100 {
+		border-color: #dc3545 ;
+		border-left-style: none;
+		border-left-width: 0px;
+		border-right-style: none;
+		border-right-width: 0px
+		display: block;
+		width: 100%;
+		height: 50px;
+		background: transparent;
+		font-family: Poppins-Regular;
+		font-size: 22px;
+		color: #555555;
+		line-height: 1.2;
+		padding: 0 2px;
+
+	}
+</style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -68,14 +97,14 @@ session_start();
 					</ul>
 
 
-					 <ul class="nav navbar-nav navbar-right menuzord-menu">
+					 <ul class="navbar-right menuzord-menu">
 
 						 @if (Route::has('login'))
 
 								 @auth
 
 
-								 <ul class="nav navbar-nav navbar-right menuzord-menu">
+
 									 <li class="menuzord-menu"><a href="#"><span class="glyphicon glyphicon-user"></span> Profil</a>
 										 <ul class="dropdown animated zoomIn">
 											 <li><a href="#"><i class="ti-user"></i>Nom  {{ Auth::user()->name }} </a></li>
@@ -135,14 +164,14 @@ session_start();
 
 
 
-								 </ul>
+
 
 
 								 @else
-									 <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+									 <li class="menuzord-menu"><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
 
 									 @if (Route::has('register'))
-										 <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+									 <li class="menuzord-menu" ><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span>Register</a></li>
 									 @endif
 								 @endauth
 
@@ -234,7 +263,7 @@ session_start();
 <!-- REVOLUTION JS FILES -->
 <script type="text/javascript" src="revolution-slider/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
-
+@yield('js')
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
 		(Load Extensions only on Local File Systems ! 
 		 The following part can be removed on Server for On Demand Loading) -->
