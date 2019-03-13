@@ -1,26 +1,24 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+<link href="http://localhost/www/Prog/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="http://localhost/www/Prog/public/images/favicon.ico" rel="icon" type="image/x-icon" />
 <!-- Plombiers Title -->
 <title>Fenouil - Application</title>
 <!-- css file -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/bootstrap.min1.css">
+<link rel="stylesheet" href="http://localhost/www/Prog/public/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost/www/Prog/public/css/style.css">
+	<link rel="stylesheet" href="http://localhost/www/Prog/public/css/bootstrap.min1.css">
 <!-- Responsive stylesheet -->
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="http://localhost/www/Prog/public/css/responsive.css">
 	<!-- REVOLUTION LAYERS STYLES -->
-<link rel="stylesheet" type="text/css" href="revolution-slider/css/settings.css">
-<link rel="stylesheet" type="text/css" href="revolution-slider/css/layers.css">
-<link rel="stylesheet" type="text/css" href="revolution-slider/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/settings.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/layers.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/navigation.css">
 
 
 <style>
@@ -66,7 +64,7 @@ session_start();
   			<div class="row">
   				<div class="col-md-5">
   					<ul class="list-inline et-ht-cntct-details">
-  						<li><a href="#"><i class="lnr lnr-map-marker"></i> IBGBI Univ EVRY </a></li>
+  						<li><a href="#"><i class="lnr lnr-map-marker"></i> IBGBI Univérsité D'Evry Val D'Essonne </a></li>
   					</ul>
   				</div>
   				<div class="col-md-7">
@@ -89,7 +87,7 @@ session_start();
 		<div class="main-header-nav scrollingto-fixed">
 			<div class="container">
 				<nav id="menuzord" class="menuzord">
-					<a href="#" class="menuzord-brand"><img src="images/header-logo.png" alt=""></a>
+					<a href="#" class="menuzord-brand"><img src="http://localhost/www/Prog/public/images/header-logo.png" alt=""></a>
 					<ul class="menuzord-menu">
 						<li><a href="{{route('Deco')}}">Décoration</a></li>
 						<li><a href="{{route('Bricolage')}}">Bricolage</a></li>
@@ -155,8 +153,9 @@ session_start();
 
 
 									 </li>
+								      <li class="menuzord-menu"><a href="{{route('ValidéCommande')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
 									 @if (Auth::user()->Fonction != null)
-										 <li class="menuzord-menu"><a href="{{route('dashbord')}}"><span class="glyphicon glyphicon glyphicon-cog"></span> Dashbord</a></li>
+										 <li class="menuzord-menu"><a href="{{route('dashbord')}}"><span class="glyphicon  glyphicon-cog"></span> Dashbord</a></li>
 
 									@endif
 
@@ -248,34 +247,34 @@ session_start();
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 </div>
 <!-- Wrapper End -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/scrollto.js"></script>
-<script type="text/javascript" src="js/menuzord.js"></script>
-<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-<script type="text/javascript" src="js/jquery-SmoothScroll-min.js"></script>
-<script type="text/javascript" src="js/fancybox.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/scrollto.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/menuzord.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-SmoothScroll-min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/fancybox.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/wow.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/owl.carousel.min.js"></script>
 <!-- Custom script for all pages --> 
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/script.js"></script>
 <!-- REVOLUTION JS FILES -->
-<script type="text/javascript" src="revolution-slider/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 @yield('js')
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
 		(Load Extensions only on Local File Systems ! 
 		 The following part can be removed on Server for On Demand Loading) -->
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
 
 <!-- END REVOLUTION SLIDER -->
 <script type="text/javascript">

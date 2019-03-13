@@ -10,65 +10,67 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Indevidu;
+
+use App\Article;
 
 Route::get('/', function () {
-    return view('index');
+
+    $arts = DB::select('SELECT * FROM Article  ORDER BY numéro DESC');
+    $ArtsBricolage = [];
+    $ArtsDecoration = [];
+    $Brico = 0;
+    $Deco = 0;
+    foreach ($arts as $ast) {
+        if ($ast->Categori == "Bricolage") {
+            $ArtsBricolage[] = $ast;
+            $Brico++;
+
+        }
+        if ($ast->Categori == "Decoration") {
+            $ArtsDecoration[] = $ast;
+            $Deco++;
+
+        }
+
+
+        if ($Brico == 3 && $Deco == 3)
+            break;
+
+    }
+
+    return view('index',compact('ArtsBricolage','ArtsDecoration'));
 })->name('index');
 
+//**********************************************************************************************************************
+
 Route::get('/Deco', function () {
-    return view('Deco');
+    $ArtsDecoration = Article::all()->where('Categori','Decoration' );
+
+    return view('Deco',compact('ArtsDecoration'));
 })->name('Deco');
 
+//**********************************************************************************************************************
+
 Route::get('/Bricolage', function () {
-    return view('Bricolage');
+    $ArtsDecoration = Article::all()->where('Categori','Bricolage' );
+    return view('Bricolage',compact('ArtsDecoration'));
 })->name('Bricolage');
 
+//**********************************************************************************************************************
+Route::get('/ValidéCommande', function () {
 
-Route ::resource('/Commande','CommandeController');
-Route ::resource('/allArt','AllArtController');
-Route::resource('/NewArt','ArticleController');
-/*
-Route::get('{n}', function($n) {
+    return view('ValidéCommande');
+})->name('ValidéCommande');
 
+//Route::post('/Commande/store', 'CommandeController@store')->name('Commande.store');
 
-	switch ($n) {
-		case 'Singup':
-			return view('Singup');
-			break;
-		case 'dashbord':
-			return view('dashbord');
-			break;
-		case 'login':
-			return view('login');
-			break;
-		case 'contact':
-			return view('contact');
-			break;
-		default:
-			return abort(404);
-			break;
-	}
-
+Route::group(['middleware' => ['web']], function () {
+    Route::resource('/Commande', 'CommandeController');
+    Route::resource('/allArt', 'AllArtController');
+    Route::resource('/NewArt', 'ArticleController');
 });
-*/
-Route::get('/insert', function(){
-
-   $indevidu = new Indevidu;
-
-   $indevidu->Nom = 'Doudi';
-   $indevidu->Prenom = 'DOU';
-   $indevidu->Age = 20;
-   $indevidu->Email ='Doudi459@gmail.com';
-   $indevidu->Adress = '23 Route de melun';
 
 
-   $indevidu->save();
-
-
-
-
-});
 
 
 Auth::routes();

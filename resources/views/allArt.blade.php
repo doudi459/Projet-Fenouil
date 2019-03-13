@@ -17,6 +17,7 @@
                     <th>Numero</th>
                     <th>Titre</th>
                     <th>Prix de vents</th>
+                    <th>Categorie</th>
                     <th class="text-lg-left">Contenu</th>
 
                 </tr>
@@ -29,6 +30,7 @@
                     <td id ="<?php echo 'Num' . $i ;?>">{{$art->numéro}}</td>
                     <td id ="<?php echo 'titre' . $i; ?>"> {{$art->titre}}</td>
                     <td id ="<?php echo 'prix' . $i; ?>" >{{$art->Prixdevents}}</td>
+                    <td id ="<?php echo 'prix' . $i; ?>" >{{$art->Categori}}</td>
                     <td class="center" >
                         <div class="row">
 
@@ -70,7 +72,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-4 " style="margin-left:53px;">
                                 <div class="et-service-column style2">
                                     <div class="et-service-thumb">
-                                        <img  id ="imgartview" class="img-responsive img-fluid" src="images/resource/service2.jpg" alt="">
+                                        <img  id ="imgartview" class="img-responsive img-fluid" style="height: 300px; width: 100%;" src="images/resource/service2.jpg" alt="">
                                         <span class="et-service-thumb2"><img src="images/icons/bath-tub.jpg" alt=""></span>
                                         <div class="et-service-overlay">
                                             <div class="et-srvc-ovrly-icon">

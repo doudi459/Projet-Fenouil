@@ -19,25 +19,34 @@
             <div class="row">
 
 
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="et-service-column style2">
-                        <div class="et-service-thumb">
-                            <img class="img-responsive img-fluid" src="images/resource/service2.jpg" alt="">
-                            <span class="et-service-thumb2"><img src="images/icons/bath-tub.jpg" alt=""></span>
-                            <div class="et-service-overlay">
-                                <div class="et-srvc-ovrly-icon">
-                                    <img src="images/icons/bath-tub2.jpg" alt="">
+                @foreach($ArtsDecoration as $art)
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="et-service-column">
+                            <div class="et-service-thumb" onclick="window.location.href = 'Commande/' + {{$art->numéro}} ; ">
+                                <img class="img-responsive "  style="height: 300px; width: 100%;" src="images/{{$art->imag}}" alt="">
+                                <div class="et-teatmembr-contact" style="margin-bottom: 160px;background-color: red;">New</div>
+                                <div class="et-service-overlay">
+                                    <div class="et-srvc-ovrly-icon">
+                                        <img src="images/icons/shawar2.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="et-service-contnt">
-                            <h3>Sewer Lines </h3>
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.</p>
-                            <a class="text-thm" href="#">read more <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
-                            <div class="et-slash">//////////////////////////////////////////////////////</div>
+                            <div class="et-service-contnt">
+                                <div class="row">
+                                    <h3 class="col-lg-6 text-thm">{{$art->titre}}  </h3>
+                                    <h3 class="col-lg-6 text-thm"> Prix :{{$art->Prixdevents}}  </h3>
+                                </div>
+
+                                <?php echo $art->Désignation ; ?>
+                                <a class="text-thm"  href="Commande/{{$art->numéro}}">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
+                                <div class="et-slash">//////////////////////////////////////////////////////</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
+
 
 
 

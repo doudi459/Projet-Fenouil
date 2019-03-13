@@ -23,6 +23,20 @@
 
             </div>
 
+            <div class="from-group">
+                {!! Form::label('Categorie','Categorie de l\'Article:') !!}
+
+                <select name="Categori" id="categori" class="default_type input100" style="display: block; width: 100%;height: 50px;">
+                    <option value="Décoration">
+                        Décoration
+                    </option>
+                    <option value="Bricolage">
+                        Bricolage
+                    </option>
+                </select>
+
+            </div>
+
 
 
             <div class="card" id="car">

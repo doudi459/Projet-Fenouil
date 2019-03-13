@@ -327,63 +327,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="et-service-column">
-                        <div class="et-service-thumb">
-                            <img class="img-responsive img-fluid" src="images/resource/service1.jpg" alt="">
-                            <span class="et-service-thumb2"><img src="images/icons/shawar.jpg" alt=""></span>
-                            <div class="et-service-overlay">
-                                <div class="et-srvc-ovrly-icon">
-                                    <img src="images/icons/shawar2.jpg" alt="">
+
+               @foreach($ArtsBricolage as $art)
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="et-service-column">
+                            <div class="et-service-thumb" onclick="window.location.href = 'Commande/' + {{$art->numéro}} ; ">
+                                <img class="img-responsive "  style="height: 300px; width: 100%;" src="images/{{$art->imag}}" alt="">
+                                <div class="et-teatmembr-contact" style="margin-bottom: 160px;background-color: red;">New</div>
+                                <div class="et-service-overlay">
+                                    <div class="et-srvc-ovrly-icon">
+                                        <img src="images/icons/shawar2.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="et-service-contnt">
-                            <h3>Pomo de douche  </h3>
-                            <p> Promotion de moin de 50% sur nos pomos de douche.</p>
-                            <a class="text-thm" href="#">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
-                            <div class="et-slash">//////////////////////////////////////////////////////</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="et-service-column">
-                        <div class="et-service-thumb">
-                            <img class="img-responsive img-fluid" src="images/resource/service2.jpg" alt="">
-                            <span class="et-service-thumb2"><img src="images/icons/bath-tub.jpg" alt=""></span>
-                            <div class="et-service-overlay">
-                                <div class="et-srvc-ovrly-icon">
-                                    <img src="images/icons/bath-tub2.jpg" alt="">
+                            <div class="et-service-contnt">
+                                <div class="row">
+                                    <h3 class="col-lg-6 text-thm">{{$art->titre}}  </h3>
+                                    <h3 class="col-lg-6 text-thm"> Prix :{{$art->Prixdevents}}  </h3>
                                 </div>
+
+                                <?php echo $art->Désignation ; ?>
+                                <a class="text-thm"  href="Commande/{{$art->numéro}}">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
+                                <div class="et-slash">//////////////////////////////////////////////////////</div>
                             </div>
                         </div>
-                        <div class="et-service-contnt">
-                            <h3>Nos Bénoire </h3>
-                            <p>envie de changé de benoire retrouvé nos benoire a des prix abordable.</p>
-                            <a class="text-thm" href="#">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
-                            <div class="et-slash">//////////////////////////////////////////////////////</div>
-                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="et-service-column">
-                        <div class="et-service-thumb">
-                            <img class="img-responsive img-fluid" src="images/resource/service3.jpg" alt="">
-                            <span class="et-service-thumb2"><img src="images/icons/triange-pipe.jpg" alt=""></span>
-                            <div class="et-service-overlay">
-                                <div class="et-srvc-ovrly-icon">
-                                    <img src="images/icons/triange-pipe2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="et-service-contnt">
-                            <h3>Nos join</h3>
-                            <p>retrouvé tout ce qui conserne la plombrie et nos piece ici </p>
-                            <a class="text-thm" href="#">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
-                            <div class="et-slash">//////////////////////////////////////////////////////</div>
-                        </div>
-                    </div>
-                </div>
+
+                    @endforeach
             </div>
         </div>
     </section>
@@ -403,82 +374,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8">
-                    <div class="et-project-column">
-                        <div class="et-project-thumb">
-                            <img class="img-responsive img-fluid" src="images/resource/project1.jpg" alt="">
-                            <div class="et-project-overlay">
-                                <div class="et-srvc-ovrly-icon">
-                                    <a class="lightbox-image" href="images/resource/project1.jpg"><span class="fa fa-search"></span></a>
-                                    <h3 class="text-thm">Outdoor plumbing</h3>
-                                    <p class="et-repair">Repair / Fixing </p>
+                @foreach($ArtsDecoration as $art)
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="et-service-column">
+                            <div class="et-service-thumb" onclick="window.location.href = 'Commande/' + {{$art->numéro}} ; ">
+                                <img class="img-responsive "  style="height: 300px; width: 100%;" src="images/{{$art->imag}}" alt="">
+                                <div class="et-teatmembr-contact" style="margin-bottom: 160px;background-color: red;">New</div>
+                                <div class="et-service-overlay">
+                                    <div class="et-srvc-ovrly-icon">
+                                        <img src="images/icons/shawar2.jpg" alt="">
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="et-service-contnt">
+                                <div class="row">
+                                    <h3 class="col-lg-6 text-thm">{{$art->titre}}  </h3>
+                                    <h3 class="col-lg-6 text-thm"> Prix :{{$art->Prixdevents}}  </h3>
+                                </div>
+
+                                <?php echo $art->Désignation ; ?>
+                                <a class="text-thm"  href="Commande/{{$art->numéro}}">Plus <i class="lnr lnr-arrow-right" aria-hidden="true"></i></a>
+                                <div class="et-slash">//////////////////////////////////////////////////////</div>
                             </div>
                         </div>
                     </div>
-                    <div class="row second-raw">
-                        <div class="col-xs-12 col-md-6">
-                            <div class="et-project-column">
-                                <div class="et-project-thumb">
-                                    <img class="img-responsive img-fluid" src="images/resource/project2.jpg" alt="">
-                                    <div class="et-project-overlay">
-                                        <div class="et-srvc-ovrly-icon">
-                                            <a class="lightbox-image" href="images/resource/project2.jpg"><span class="fa fa-search"></span></a>
-                                            <h3 class="text-thm">Outdoor plumbing</h3>
-                                            <p class="et-repair">Repair / Fixing </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <div class="et-project-column">
-                                <div class="et-project-thumb">
-                                    <img class="img-responsive img-fluid" src="images/resource/project3.jpg" alt="">
-                                    <div class="et-project-overlay">
-                                        <div class="et-srvc-ovrly-icon">
-                                            <a class="lightbox-image" href="images/resource/project3.jpg" data-fancybox-group="preject" title="Project Photos"><span class="fa fa-search"></span></a>
-                                            <h3 class="text-thm">Outdoor plumbing</h3>
-                                            <p class="et-repair">Repair / Fixing </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="et-project-column">
-                                <div class="et-project-thumb">
-                                    <img class="img-responsive img-fluid" src="images/resource/project4.jpg" alt="">
-                                    <div class="et-project-overlay">
-                                        <div class="et-srvc-ovrly-icon">
-                                            <a class="lightbox-image" href="images/resource/project4.jpg" data-fancybox-group="preject" title="Project Photos"><span class="fa fa-search"></span></a>
-                                            <h3 class="text-thm">Outdoor plumbing</h3>
-                                            <p class="et-repair">Repair / Fixing </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 second-raw">
-                            <div class="et-project-column">
-                                <div class="et-project-thumb">
-                                    <img class="img-responsive img-fluid" src="images/resource/project5.jpg" alt="">
-                                    <div class="et-project-overlay">
-                                        <div class="et-srvc-ovrly-icon">
-                                            <a class="lightbox-image" href="images/resource/project5.jpg" data-fancybox-group="preject" title="Project Photos"><span class="fa fa-search"></span></a>
-                                            <h3 class="text-thm">Outdoor plumbing</h3>
-                                            <p class="et-repair">Repair / Fixing </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
+
             </div>
         </div>
     </section>

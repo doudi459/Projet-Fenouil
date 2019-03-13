@@ -51,6 +51,7 @@ class ArticleController extends Controller
         $art->titre =  $donnes['text'];
         $art->Désignation =  $donnes['comment'];
         $art->Prixdevents = $donnes['Prix_de_vente'];
+        $art->Categori = $donnes['Categori'];
 
         $art->save();
 
