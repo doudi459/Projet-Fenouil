@@ -1,3 +1,7 @@
+<?php
+use App\Notefication;
+
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
@@ -5,8 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-<link href="http://localhost/www/Prog/public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<link href="http://localhost/www/Prog/public/images/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="http://localhost/www/Prog/public/images/fenouil.png" rel="shortcut icon" type="image/x-icon" />
+<link href="http://localhost/www/Prog/public/images/fenouil.png" rel="icon" type="image/x-icon" />
 <!-- Plombiers Title -->
 <title>Fenouil - Application</title>
 <!-- css file -->
@@ -87,7 +91,7 @@
 		<div class="main-header-nav scrollingto-fixed">
 			<div class="container">
 				<nav id="menuzord" class="menuzord">
-					<a href="#" class="menuzord-brand"><img src="http://localhost/www/Prog/public/images/header-logo.png" alt=""></a>
+					<a href="#" class="menuzord-brand"><img src="http://localhost/www/Prog/public/images/fenouil.png" alt=""></a>
 					<ul class="menuzord-menu">
 						<li><a href="{{route('Deco')}}">Décoration</a></li>
 						<li><a href="{{route('Bricolage')}}">Bricolage</a></li>
@@ -124,20 +128,21 @@
 									 </li>
 									 <li class="menuzord-menu"><a href="#"><span class="glyphicon glyphicon glyphicon-envelope"></span> Notification</a>
 
-
+										 <?php $notifs = Notefication::all()->where('id_indevidu','=', Auth::user()->id)->sortByDesc('id_notif'); ?>
 										 <ul class="dropdown dropdown-menu dropdown-menu-right mailbox animated zoomIn">
 											 <li>
 												 <div class="drop-title">VOS MESSAGE</div>
 											 </li>
+											 @foreach($notifs as $notif)
 											 <li style="overflow: visible;">
 												 <div class="slimScrollDiv" style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 250px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
 
 
 														 <a href="#">
-															 <div class="user-img"> <img src= "images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+															 <div> <span  style="color: #857b26;" class="img-circle glyphicon glyphicon-hourglass"> </span> <span class="profile-status online pull-right"></span>{{$notif->objet}}</div>
 
 															 <div class="mail-contnet">
-																 <h5></h5> <span class="mail-desc"></span>
+																 <h5>{{$notif->contenu}}</h5> <span class="mail-desc"></span>
 															 </div>
 														 </a>
 
@@ -145,6 +150,7 @@
 
 													 </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
 											 </li>
+											 @endforeach
 											 <li>
 												 <a class="nav-link text-center" href="javascript:void(0);"> <strong>Voir Tout les Notification</strong> <i class="fa fa-angle-right"></i> </a>
 											 </li>
@@ -153,7 +159,7 @@
 
 
 									 </li>
-								      <li class="menuzord-menu"><a href="{{route('ValidéCommande')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
+								      <li class="menuzord-menu"><a href="{{route('ValidéCommande.index')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
 									 @if (Auth::user()->Fonction != null)
 										 <li class="menuzord-menu"><a href="{{route('dashbord')}}"><span class="glyphicon  glyphicon-cog"></span> Dashbord</a></li>
 

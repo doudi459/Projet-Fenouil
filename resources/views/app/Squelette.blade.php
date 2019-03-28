@@ -4,27 +4,69 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="http://localhost/www/Prog/public/images/fenouil.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="http://localhost/www/Prog/public/images/fenouil.png" rel="icon" type="image/x-icon" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
     <!-- Plombiers Title -->
     <title>Fenouil - Application</title>
     <!-- css file -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://localhost/www/Prog/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/www/Prog/public/css/style.css">
     <!-- Responsive stylesheet -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="http://localhost/www/Prog/public/css/responsive.css">
     <!-- REVOLUTION LAYERS STYLES -->
-    <link rel="stylesheet" type="text/css" href="revolution-slider/css/settings.css">
-    <link rel="stylesheet" type="text/css" href="revolution-slider/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="revolution-slider/css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="js/bootstrap-wysihtml5.css"></link>
-    <link href="css/bootstrap.min1.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="rhttp://localhost/www/Prog/public/evolution-slider/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/js/bootstrap-wysihtml5.css"></link>
+    <link href="http://localhost/www/Prog/public/css/bootstrap.min1.css" rel="stylesheet">
     <!-- Custom CSS -->
 
 
-    <link href="css/styll.css" rel="stylesheet">
+    <link href="http://localhost/www/Prog/public/css/styll.css" rel="stylesheet">
 
+    <style>
+        .label-input100 {
+
+            font-family: Poppins-SemiBold;
+            font-size: 18px;
+            color: #999999;
+            line-height: 1.2;
+            padding-left: 2px;
+
+        }
+        .input100 {
+            border-color: #dc3545 ;
+            border-left-style: none;
+            border-left-width: 0px;
+            border-right-style: none;
+            border-right-width: 0px
+            display: block;
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            font-family: Poppins-Regular;
+            font-size: 22px;
+            color: #555555;
+            line-height: 1.2;
+            padding: 0 2px;
+
+        }
+        .defaut{
+            border-style: solid;
+            border-color: #AAAAAA;
+            border-width: 2px;
+        }
+
+        .selection{
+            border-style: solid;
+            border-color: #AAAAAA;
+            border-width: 2px;
+            background-color: #8888DD;
+        }
+
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,10 +107,10 @@
         <div class="main-header-nav ">
             <div class="container">
                 <nav id="menuzord" class="menuzord">
-                    <a href="#" class="menuzord-brand"><img src="images/header-logo.png" alt=""></a>
+                    <a href="#" class="menuzord-brand"><img src="http://localhost/www/Prog/public/images/fenouil.png" alt=""></a>
                     <ul class="menuzord-menu">
-                        <li><a href="#">Décoration</a></li>
-                        <li><a href="#Bricolage">Bricolage</a></li>
+                        <li><a href="/Deco">Décoration</a></li>
+                        <li><a href="/Bricolage">Bricolage</a></li>
                         <li><a href="contact">Nous Contacté</a></li>
                     </ul>
                     <ul class="navbar-right  menuzord-menu">
@@ -138,7 +180,7 @@
     <section class="et-section-divider" style="padding-top: 10px;padding-bottom: 10px;background-image:none;">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="col-md-8 col-md-offset-3 text-center">
                     <h2 class="text-uppercase">Bienvenu A Vous</h2>
                 </div>
             </div>
@@ -265,21 +307,21 @@
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 </div>
 <!-- Wrapper End -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/scrollto.js"></script>
-<script type="text/javascript" src="js/menuzord.js"></script>
-<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-<script type="text/javascript" src="js/jquery-SmoothScroll-min.js"></script>
-<script type="text/javascript" src="js/fancybox.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/scrollto.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/menuzord.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/jquery-SmoothScroll-min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/fancybox.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/wow.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/owl.carousel.min.js"></script>
 <!-- Custom script for all pages -->
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/js/script.js"></script>
 <!-- REVOLUTION JS FILES -->
-<script type="text/javascript" src="revolution-slider/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
 		(Load Extensions only on Local File Systems !
@@ -287,34 +329,34 @@
 
 
 
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="text/javascript" src="revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="http://localhost/www/Prog/public/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
 
 
 <!-- Bootstrap tether Core JavaScript -->
 
 <!-- slimscrollbar scrollbar JavaScript -->
-<script src="js/jquery.slimscroll.js"></script>
+<script src="http://localhost/www/Prog/public/js/jquery.slimscroll.js"></script>
 <!--Menu sidebar -->
-<script src="js/sidebarmenu.js"></script>
+<script src="http://localhost/www/Prog/public/js/sidebarmenu.js"></script>
 <!--stickey kit -->
-<script src="js/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="http://localhost/www/Prog/public/js/sticky-kit-master/dist/sticky-kit.min.js"></script>
 
 <!-- Amchart -->
 
-<script src="js/owl-carousel/owl.carousel.min.js"></script>
-<script src="js/owl-carousel/owl.carousel-init.js"></script>
-<script src="js/scripts.js"></script>
+<script src="http://localhost/www/Prog/public/js/owl-carousel/owl.carousel.min.js"></script>
+<script src="http://localhost/www/Prog/public/js/owl-carousel/owl.carousel-init.js"></script>
+<script src="http://localhost/www/Prog/public/js/scripts.js"></script>
 <!-- scripit init-->
 
-<script src="js/custom.min.js"></script>
+<script src="http://localhost/www/Prog/public/js/custom.min.js"></script>
 
 <!-- END REVOLUTION SLIDER -->
 @yield('js')

@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
             }
 
 
-            return redirect('/homz');
+            return redirect('/');
         }
 
         return $next($request);

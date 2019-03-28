@@ -85,7 +85,7 @@
 
     </section>
 
-    <div id="myModal3" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 200px;">
+    <div id="myModal3" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 150px;">
 
         <div class="modal-content ">
 
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <div id="myModal1" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 200px;">
+    <div id="myModal1" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 150px;">
 
         <div class="modal-content ">
 

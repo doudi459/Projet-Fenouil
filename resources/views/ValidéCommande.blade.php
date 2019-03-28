@@ -5,8 +5,8 @@
 
 @section('contenu')
 
-<div class="contener">
-    <div class="row">
+    <div class="contener">
+        <div class="row">
 
 
     <div class="card col-lg-offset-3 col-lg-6">
@@ -24,39 +24,30 @@
                 </div>
             </div>
             </div>
-            <div class="row">
+            @if(isset($Arts))
+                <?php $valeur = 0 ; ?>
+                @foreach($Arts as $art)
+
+            <div class="row" id="{{$art->numro}}">
                 <div class="col-lg-4">
-                    <img class="img-responsive" style="height: 100px;" src="" alt="">
+                    <img class="img-responsive" style="height: 100px;width: 100%;" src="images/{{$art->imag}}" alt="">
                 </div>
                 <div class="col-lg-8" >
                     <div class="row">
-                        <h3 class="col-lg-4 text-thm">Titre :  </h3>
-                        <h3 class="col-lg-4 text-thm"> Prix :  </h3>
-                        <h3 class="col-lg-3 text-thm"> Qantité :  </h3>
-                        <h3> <span class="col-lg-1 glyphicon glyphicon-remove" style="color: red;"></span></h3>
+                        <h3 class="col-lg-4 text-thm">Titre : {{$art->titre}} </h3>
+                        <h3 class="col-lg-4 text-thm"> Prix : {{$art->Prixdevents}}</h3>
+                        <h3 class="col-lg-3 text-thm"> Qantité : {{$art->qantite}} </h3>
+                        <h3> <span onclick="Supprim(this)" data-id="{{$art->numro}}"  data-prix ="{{$art->Prixdevents}}" data-qantit = "{{$art->qantite}}" class="col-lg-1 glyphicon glyphicon-remove" style="color: red;"></span></h3>
                     </div>
-                       <p>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd </p>
+                    <br>
+                    <br>
                     <div class="et-slash">///////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <img class="img-responsive" style="height: 100px;" src="" alt="">
-                </div>
-                <div class="col-lg-8" >
-                    <div class="row">
-                        <h3 class="col-lg-5 text-thm">Titre :  </h3>
-                        <h3 class="col-lg-6 text-thm"> Prix :  </h3>
-                        <h3> <span class="col-lg-1 glyphicon glyphicon-remove" style="color: red;"></span></h3>
+                    <?php $valeur = $valeur + $art->Prixdevents * $art->qantite ; ?>
+          @endforeach
+                @endif
 
-                    </div>
-                    <p>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd </p>
-                    <div class="et-slash">///////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
-                </div>
-            </div>
-            <div class="row col-lg-offset-8">
-
-            </div>
         </div>
 
 
@@ -67,7 +58,11 @@
             <button class="btn btn-danger btn-md" style="height: 40px;">Annulé Comande</button>
                 </div>
                 <h3 class="text-center text-thm col-lg-offset-6" style="height: 40px;"> Prix Totale  : </h3>
-                <input type="number" style="width: 15%; ">
+                @if(isset($Arts))
+                <input type="number" id="Totale" value="{{$valeur}}" DISABLED style="width: 15%; ">
+                    @else
+                    <input type="number" value="0" style="width: 15%; ">
+                    @endif
             </div>
         </div>
 
@@ -118,38 +113,24 @@
 
                     <div class="from-group">
                         <div class="form-label-group">
-                            <label for="firstName">Nom</label>
-                            <input type="text" id="Nom" class="form-control" placeholder="Nom" required="required" autofocus="autofocus">
-
-                        </div>
-                    </div>
-                    <div class="from-group">
-                        <div class="form-label-group">
-                            <label for="firstName">Prenom</label>
-                            <input type="text" id="Prenom" class="form-control" placeholder="Prenom" required="required" autofocus="autofocus">
-
-                        </div>
-                    </div>
-                    <div class="from-group">
-                        <div class="form-label-group">
-                            <label for="firstName">Numero De Cart</label>
-                            <input type="number" id="Numero" class="form-control"  required="required" autofocus="autofocus">
+                            <label class="label-input100" for="firstName">Numero De Cart</label>
+                            <input type="number" id="Numero" class="form-control input100"  required="required" autofocus="autofocus">
 
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-4">
-                                <div class="form-label-group">
-                                    <label for="firstName">Date d'expiration </label>
-                                    <input type="date" id="Date" class="form-control"  required="required" autofocus="autofocus">
+                            <div class="col-md-5">
+                                <div class="form-label-group" style="margin-left: 20%">
+                                    <label class="label-input100" for="firstName">Date d'expiration </label>
+                                    <input type="date" id="Date" class="form-control input100 " style="width: 70%;" required="required" autofocus="autofocus">
 
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <div class="form-label-group">
-                                    <label for="Prix de vent">CVC/CVV</label>
-                                    <input type="number" id="CVC" class="form-control" placeholder="CVC" required="required">
+                            <div class="col-md-7">
+                                <div class="form-label-group" style="margin-left: 40%">
+                                    <label class="label-input100" for="Prix de vent">CVC/CVV</label>
+                                    <input type="number" id="CVC" min="0" max="9999" class="form-control input100 " style="width: 40%;" placeholder="CVC" required="required">
 
                                 </div>
                             </div>
@@ -157,7 +138,7 @@
                     </div>
 
                     <div class="row">
-                        <button type="submit" class="btn btn-md btn-primary col-lg-6"  id="btnEdit" href="#">Validé</button>
+                        <button type="button" class="btn btn-md btn-primary col-lg-6" onclick="enregistraisCart();"  id="btnEdit" href="#">Validé</button>
                         <button type="button" class="btn btn-md btn-danger col-lg-6 "  id="btnEdit1" href="#">Annulé</button>
 
                     </div>
@@ -179,21 +160,26 @@
     </div>
 </div>
 
-<div id="myModal" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 200px; margin-left: 37%;">
+<div id="myModal" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 150px; margin-left: 37%;">
 
     <div class="modal-content ">
 
         <div class="container">
 
 
+                <!-- separator: Google Map -->
+                <p class="label-input100">Nos Magasins :</p>
+                <div id="map-canvas" class="et-map" style="height: 320px;">
+
+                </div>
+
 
             <div class="from-groupe">
 
-                <img src ='http://localhost/www/Prog/public/images/validation.jpg' class='zoomIn rounded img-circle' style="right: 25%;">
-                <h5 class="text-lg-center text-thm et-tm-skill" >envoyer le cheque par courier </h5>
-                <h2 class="text-lg-center"> Commande validé avec succeé</h2>
+                <h5 class="text-lg-center text-thm et-tm-skill" >envoyer le cheque par courier a cette adress: </h5>
+                <h2 class="text-lg-center">23 Boulevard de France, 91037 Évry</h2>
             </div>
-            <button id="btn3" type="button" class="btn btn-primary btn-md">Validé</button>
+            <button id="btn3" type="button"  class="btn btn-primary btn-md btn-block">Validé</button>
 
 
         </div>
@@ -202,6 +188,21 @@
 
 
 
+    <div id="myModalCv" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 150px; margin-left: 37%;">
+
+        <div class="modal-content ">
+
+            <div class="container">
+                <div class="from-groupe">
+
+                    <img src ='http://localhost/www/Prog/public/images/validation.jpg' class='zoomIn rounded img-circle' style="right: 25%;">
+                    <h5 class="text-lg-center text-thm et-tm-skill" >Commande enregistrais</h5>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -211,10 +212,35 @@
 
 
 
-@stop
+
+
+
+            @stop
 
 @section('js')
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyABqK-5ngi3F1hrEsk7-mCcBPsjHM5_Gj0"></script>
+    <script src="http://localhost/www/Prog/public/js/jquery.googlemap.js"></script>
+
     <script>
+        $(window).load(function() {
+            $("#map-canvas").googleMap({
+                zoom:15, // Initial zoom level (optional)
+                coords: [48.6255811 ,2.4398007], // Map center (optional)
+                type: "ROADMAP", // Map type (optional)
+                address: "IBGBI université d'evry, Paris, France", // Postale Address
+                infoWindow: {
+                    content: '<p style="text-align:center;"><strong>Evry val d\'essone,</strong><br> Paris, France</p>'
+                }
+            });
+            // Marker 2
+            $("#map-canvas").addMarker({
+                coords: [48.6255811 ,2.4398007]
+            });
+        });
+    </script>
+    <script>
+//******************************************************************************Edit 1**********************************************************************
+
         var Edite  = function (obj)
         {
 
@@ -229,7 +255,7 @@
                 }
 
         };
-
+//*********************************************************************************Edit 2 *******************************************************************
         var Edite2  = function (obj)
         {
             var modal = document.getElementById('myModalU');
@@ -242,6 +268,7 @@
             var chek2 = document.getElementById('cart').checked;
 
 
+
             if(chek2 == true) {
 
                 var modal = document.getElementById('myModal2');
@@ -252,10 +279,54 @@
                 modal.style.display = 'block';
 
                 btn2.onclick = function () {
-                    modal.style.display = 'none';
+
+
+                    var numero = $("#Numero").val();
+                    var cvv = $("#CVC").val();
+                    var dateval = $("#Date").val();
+                    var total = document.getElementById('Totale').value;
+                    if (/[0-9]{16}/.test(numero) && /[0-9]{3,4}/.test(cvv))
+
+                    {
+                        modal.style.display = 'none';
+                    var Cart = {
+                        numero: numero,
+                        cvv: cvv,
+                        total: total,
+                        dateval: dateval
+                    };
+
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+
+                        type: 'put',
+                        url: 'ValidéCommande/' + @if(isset($art->num_commande)) {{$art->num_commande}} @else d @endif,
+                        data: {Cart: Cart},
+                        success: function (data) {
+                            console.log(data);
+                        },
+                        error: function (xhr) {
+                            console.log(xhr.responseText);
+                        }
+                    });
+
+                    var mo = $("#myModalCv");
+                    mo.css('display', "block");
+                    setTimeout('window.location.replace("/www/Prog/public/");', 5000);
+                }
+                    else
+                    {
+                        alert('Une Erreur est survenu votre Numero de cart ou votre CVV et incorrect.');
+                    }
                 };
                 btn1.onclick = function () {
                     modal.style.display = 'none';
+
                 }
 
                 window.onclick = function () {
@@ -265,8 +336,6 @@
                 }
             }
             if(chek1 == true){
-
-                var quantité = document.getElementById('');
 
 
 
@@ -278,7 +347,35 @@
 
                 btn2.onclick = function () {
                     modal.style.display = 'none';
+                    var total = document.getElementById('Totale').value;
+                    var Cheque = {total:total};
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+
+                        type: 'put',
+                        url:'ValidéCommande/' +  @if(isset($art->num_commande)) {{$art->num_commande}} @else d @endif,
+                        data: {Cheque:Cheque},
+                        success: function (data) {
+                            console.log(data);
+                        },
+                        error:function (xhr) {
+                            console.log(xhr.responseText);
+                        }
+                    });
+
+                    var mo = $("#myModalCv");
+                    mo.css('display',"block");
+                    //setTimeout('window.location.replace("/www/Prog/public/");',5000);
+
+
                 };
+
+
 
                 window.onclick = function () {
                     if (obj.target == modal) {
@@ -293,8 +390,41 @@
 
         };
 
+        //**********************************************supr element *******************************************************
+        var Supprim = function (obj) {
 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+           var id= obj.dataset.id ;
+           var model = document.getElementById(id);
+            var qantit = obj.dataset.qantit ;
+            var prix= obj.dataset.prix ;
+            var total = document.getElementById('Totale');
+            total.value = total.value - prix * qantit ;
+           model.style.display = 'none';
+            $.ajax({
+
+                type: 'delete',
+                url:'ValidéCommande/' + id + ' ' + @if(isset($art->num_commande)) {{$art->num_commande}} @else d @endif,
+                data: {num_com:id},
+                success: function (data) {
+                    console.log(data);
+                },
+                error:function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            })
+
+
+        };
+
+
+    //**************************************************************** enregistrais Cart ****************************************************
 
     </script>
+
 
 @stop

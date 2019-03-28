@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'DateNes' => $data['datenessance'],
             'Adress' => $data['adress'],
             'NumTell' => $data['numtell'],
+            'categori_socio' => $data['categori'],
             'password' => Hash::make($data['password']),
         ]);
     }

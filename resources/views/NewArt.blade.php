@@ -13,13 +13,13 @@
         <div class="card">
         <div class="from-group">
             {!! Form::label('tite1','Titre:') !!}
-            {!! Form::text('text',null,['class' => 'form-control input-rounded' ,'placeholder' => 'Entrez le titre ici' ]) !!}
+            {!! Form::text('text',null,['class' => 'form-control input-rounded input100' ,'placeholder' => 'Entrez le titre ici' ]) !!}
 
         </div>
 
             <div class="from-group">
                 {!! Form::label('Prix','Prix de vente:') !!}
-                {!! Form::number('Prix de vente',null,['class' => 'form-control input-rounded' ,'placeholder' => 'Entrez le prix ici' ]) !!}
+                {!! Form::number('Prix de vente',null,['class' => 'form-control input-rounded input100' ,'placeholder' => 'Entrez le prix ici' ]) !!}
 
             </div>
 
@@ -27,7 +27,7 @@
                 {!! Form::label('Categorie','Categorie de l\'Article:') !!}
 
                 <select name="Categori" id="categori" class="default_type input100" style="display: block; width: 100%;height: 50px;">
-                    <option value="Décoration">
+                    <option  value="Décoration">
                         Décoration
                     </option>
                     <option value="Bricolage">

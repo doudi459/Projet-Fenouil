@@ -46,7 +46,7 @@
                             <label for="age" class=" label-input100 col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
 
                             <div class="col-md-6">
-                                <input id="age" type="text" class="input100 form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus>
+                                <input id="age" type="number" class="input100 form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus>
 
                                 @if ($errors->has('age'))
                                     <span class="invalid-feedback" role="alert">
@@ -55,7 +55,37 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row wrap-input100 validate-input">
+                            <label for="age" class=" label-input100 col-md-4 col-form-label text-md-right">{{ __('Categori') }}</label>
 
+                            <div class="col-md-6">
+                                <select id="categori" type="text" class="input100 {{ $errors->has('categori') ? ' is-invalid' : '' }}" name="categori" value="{{ old('categori') }}" required autofocus>
+                                    <option  value=" Agriculteurs exploitants ">
+                                        Agriculteurs exploitants
+                                    </option>
+                                    <option value="Artisans, commerçants et chefs d’entreprise ">
+                                        Artisans, commerçants et chefs d’entreprise
+                                    </option>
+                                    <option  value="Cadres et professions intellectuelles supérieures">
+                                        Cadres et professions intellectuelles supérieures
+                                    </option>
+                                    <option value="Professions Intermédiaires ">
+                                        Professions Intermédiaires
+                                    </option>
+                                    <option  value="Employés">
+                                        Employés
+                                    </option>
+                                    <option value="Ouvriers">
+                                        Ouvriers
+                                    </option>
+                                </select>
+                                @if ($errors->has('categori'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('categori') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row wrap-input100 validate-input">
                             <label for="datenessance" class="label-input100 col-md-4 col-form-label text-md-right">{{ __('DateNaissance') }}</label>

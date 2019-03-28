@@ -12,6 +12,8 @@
 */
 
 use App\Article;
+use App\User;
+use App\Cible_routage;
 
 Route::get('/', function () {
 
@@ -57,20 +59,27 @@ Route::get('/Bricolage', function () {
 })->name('Bricolage');
 
 //**********************************************************************************************************************
-Route::get('/ValidéCommande', function () {
 
-    return view('ValidéCommande');
-})->name('ValidéCommande');
+Route::delete('/ValidéCommande/{id}', 'ValiderCommandeController@destroy');
+Route::put('/ValidéCommande/{id}', 'ValiderCommandeController@update');
+Route::get('/ToutLesCible', function () {
 
-//Route::post('/Commande/store', 'CommandeController@store')->name('Commande.store');
+    $arts = Cible_routage::all();
+    return view('ToutLesCible',compact('arts'));
+})->name('ToutLesCible');
+
+//**********************************************************************************************************************
 
 Route::group(['middleware' => ['web']], function () {
     Route::resource('/Commande', 'CommandeController');
+    Route::resource('/ValidéCommande','ValiderCommandeController')->except('destroy','update');
     Route::resource('/allArt', 'AllArtController');
     Route::resource('/NewArt', 'ArticleController');
+    Route::resource('/dashbord/NewCible','AjouterCibleController');
+    Route::resource('/dashbord/NewCible','AjouterCibleController');
+    Route::resource('/dashbord/CommandeAD','ComandeADMContreller');
 });
-
-
+//**********************************************************************************************************************
 
 
 Auth::routes();
