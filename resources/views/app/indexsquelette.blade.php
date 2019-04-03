@@ -3,7 +3,7 @@ use App\Notefication;
 
 ?>
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="fr">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -107,7 +107,8 @@ use App\Notefication;
 
 
 
-									 <li class="menuzord-menu"><a href="#"><span class="glyphicon glyphicon-user"></span> Profil</a>
+									 <li class="menuzord-menu"><a href="#"><span class="glyphicon glyphicon-user"></span> Profil   </a>
+
 										 <ul class="dropdown animated zoomIn">
 											 <li><a href="#"><i class="ti-user"></i>Nom  {{ Auth::user()->name }} </a></li>
 											 <li><a href="#"><i class="ti-wallet"></i>Prenom  {{ Auth::user()->prenom }}</a></li>
@@ -125,30 +126,34 @@ use App\Notefication;
 												 </a></li>
 
 										 </ul>
+
 									 </li>
-									 <li class="menuzord-menu"><a href="#"><span class="glyphicon glyphicon glyphicon-envelope"></span> Notification</a>
+
+									 <li class="menuzord-menu"><a href="#">  <span class="glyphicon glyphicon glyphicon-envelope"> <span id="nbmsg" class="badge badge-danger" style="position: absolute ; margin-top: -13px" ></span> </span>  Notification</a>
 
 										 <?php $notifs = Notefication::all()->where('id_indevidu','=', Auth::user()->id)->sortByDesc('id_notif'); ?>
 										 <ul class="dropdown dropdown-menu dropdown-menu-right mailbox animated zoomIn">
+
 											 <li>
 												 <div class="drop-title">VOS MESSAGE</div>
 											 </li>
 											 @foreach($notifs as $notif)
 											 <li style="overflow: visible;">
-												 <div class="slimScrollDiv" style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 250px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
+												 <div class="slimScrollDiv" style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto;"><div class="message-center">
 
 
 														 <a href="#">
-															 <div> <span  style="color: #857b26;" class="img-circle glyphicon glyphicon-hourglass"> </span> <span class="profile-status online pull-right"></span>{{$notif->objet}}</div>
+															 <div class="text-thm"> <span id="{{$notif->id_notif}}" style="color: #857b26;" class=""> </span> <span class="profile-status online pull-right"></span>{{$notif->objet}}</div>
 
-															 <div class="mail-contnet">
-																 <h5>{{$notif->contenu}}</h5> <span class="mail-desc"></span>
+															 <div class="mail-contnet text-center">
+																 <h5>{{$notif->contenu}}</h5>
 															 </div>
 														 </a>
 
 
 
-													 </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+													 </div>
+												 </div>
 											 </li>
 											 @endforeach
 											 <li>
@@ -383,6 +388,47 @@ use App\Notefication;
 			});
 		}
 	});	/*ready*/
+</script>
+<script>
+	@if (Route::has('login'))
+
+			@auth
+	window.onload = function () {
+		var nummsg = 0;
+				@foreach($notifs as $notif)
+				var notifid = {{$notif->id_notif}} ;
+				var spa = document.getElementById(notifid);
+				var etat = "{{$notif->Type}}";
+				var type = {{$notif->état}}
+				if (type == 0)
+		{
+			nummsg = nummsg + 1 ;
+			console.log(nummsg);
+		}
+
+				if (etat =="attente")
+				{
+					spa.className = "img-circle glyphicon glyphicon-hourglass";
+				}
+				if (etat =="Validé")
+				{
+			spa.className = "img-circle glyphicon glyphicon-ok";
+				}
+				if (etat =="refusé")
+				{
+			spa.className = "img-circle glyphicon glyphicon-remove";
+				}
+
+				@endforeach
+				document.getElementById("nbmsg").innerText = nummsg ;
+
+
+	};
+			@endauth
+
+					@endif
+
+
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +14,11 @@
     <link rel="stylesheet" href="http://localhost/www/Prog/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/www/Prog/public/css/style.css">
     <!-- Responsive stylesheet -->
-    <link rel="stylesheet" href="http://localhost/www/Prog/public/css/responsive.css">
-    <!-- REVOLUTION LAYERS STYLES -->
-    <link rel="stylesheet" type="text/css" href="rhttp://localhost/www/Prog/public/evolution-slider/css/settings.css">
+    <link rel="stylesheet" href="http://localhost/www/Prog/public/css/responsive.css">   <!-- REVOLUTION LAYERS STYLES -->
+
     <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/layers.css">
     <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/revolution-slider/css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/js/bootstrap-wysihtml5.css"></link>
+    <link rel="stylesheet" type="text/css" href="http://localhost/www/Prog/public/js/bootstrap-wysihtml5.css">
     <link href="http://localhost/www/Prog/public/css/bootstrap.min1.css" rel="stylesheet">
     <!-- Custom CSS -->
 
@@ -207,7 +206,7 @@
                         <li> <a class="has-arrow " href="#" aria-expanded="false" style="background-color: #1e1e1e;" ><i class="fa fa-file"></i><span class="hide-menu">Publicité</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="">Toutes les Pubs</a></li>
-                                <li><a href="ajouterpage.php">nouvelle Publicite</a></li>
+                                <li><a href="{{route('CreatPub.index')}}">nouvelle Publicite</a></li>
 
                             </ul>
                         </li>
@@ -225,9 +224,9 @@
                         @if(Auth::user()->Fonction == 'Responsable du Routage'|| Auth::user()->Fonction == 'Responsable de stratigie')
                         <li> <a class="has-arrow  " href="#" aria-expanded="false" style="background-color: #1e1e1e;" ><i class="glyphicon glyphicon-download-alt"></i><span class="hide-menu">Cible de Routage</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Tout les cible actuelle </a></li>
-                                <li><a href="#">Ajouter nouvelle cible</a></li>
-                                <li><a href="#">Nouvell Cible</a></li>
+                                <li><a href="{{route('ToutLesCible.index ')}}">Tout les cible actuelle </a></li>
+                                <li><a href="{{route('NewCible.index')}}">Ajouter nouvelle cible</a></li>
+                                <li><a href="{{route('NewCible.index')}}">Nouvell Cible</a></li>
 
                             </ul>
                         </li>
@@ -235,8 +234,8 @@
                         @if(Auth::user()->Fonction == 'Gestionnaire Administratif')
                         <li> <a class="has-arrow  " href="#" aria-expanded="false" style="background-color: #1e1e1e;" ><i class="glyphicon glyphicon-remove"></i><span class="hide-menu">Anomalie</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Consulté les anomalie </a></li>
-                                <li><a href="#">Rédigé Courier</a></li>
+                                <li><a href="{{route('anomalie.store')}}">Consulté les anomalie </a></li>
+                                <li><a href="{{route('editanomali.index')}}">Rédigé Courier</a></li>
 
                             </ul>
                         </li>

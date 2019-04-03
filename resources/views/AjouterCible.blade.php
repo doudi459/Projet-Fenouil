@@ -100,25 +100,24 @@
             </div>
 
         </div>
-    <form id="Redirect" action="{{ route('ToutLesCible') }}"  style="display: none;">
+    <form id="Redirect" action="{{ route('ToutLesCible.index') }}"  style="display: none;">
         @csrf
     </form>
 
-    <div id="myModal1" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 200px;">
 
-        <div class="modal-content ">
+    <div id="myModalCv" class="modal dropdown animated zoomIn col-md-4 " style="top: 100px; margin-left: 37%;">
+
+        <div class="modal-content">
 
             <div class="container">
-
-
-
                 <div class="from-groupe">
 
-                    <img src ='http://localhost/www/Prog/public/images/validation.jpg' class='zoomIn rounded img-circle' style="right: 25%;">
-                    <h5 class="text-lg-center text-thm et-tm-skill" >Cible Ajouter avec Succeé </h5>
-                    <h2 class="text-lg-center">redirection</h2>
-                </div>
+                    <img src ="http://localhost/www/Prog/public/images/validation.jpg" class="zoomIn rounded img-circle" style="width: 50%;">
+                    <br>
+                    <h5 class="text-lg-center text-thm et-tm-skill" style="margin-right: 50%" >Cible Ajouter avec Succeé</h5>
+                    <h2 class="text-lg-center" style="margin-right: 50%" >redirection</h2>
 
+                </div>
 
 
             </div>
@@ -130,12 +129,12 @@
 
 @stop
 @section('js')
-    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="http://localhost/www/Prog/public/js/jquery.dataTables.min.js"></script>
 
-    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="http://localhost/www/Prog/public/js/dataTables.bootstrap.js"></script>
 
-    <script src="js/custom.js"></script>
-    <script src="js/tables.js"></script>
+    <script src="http://localhost/www/Prog/public/js/custom.js"></script>
+    <script src="http://localhost/www/Prog/public/js/tables.js"></script>
     <script>
         var appuier = function () {
             var lab = $('#example_filter').children('label');
@@ -179,7 +178,7 @@
             {
                 obj.className  = "selection";
                 ObjSelec.push(int);
-                console.log(ObjSelec);
+
             }
 
 
@@ -196,15 +195,17 @@
                 }
             });
             $.post("{{route('NewCible.store')}}",{User:ObjSelec,age:age,categori:categori,adress:adress}, function (data) {
-               console.log(data);
+
+                document.getElementById('myModalCv').style.display = 'block';
+                setTimeout('Ajouter();', 4000);
             });
-            setTimeout('Ajouter();', 4000);
+
 
         };
         var Ajouter = function ()
         {
 
-            document.getElementById('myModal1').style.display = 'block';
+
             document.getElementById('Redirect').submit();
 
         };

@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Article ;
+use App\Publicite;
+use App\article_pub;
 use Illuminate\Http\Request;
-use App\User;
-use App\Cible_routage;
-use App\individu_cible;
-use mysql_xdevapi\Exception;
 
-class AjouterCibleController extends Controller
+class PubCreateControler extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,10 @@ class AjouterCibleController extends Controller
      */
     public function index()
     {
-        $arts = User::all()->where('Fonction','=',null);
+        $arts = Article::all();
 
-        return view('AjouterCible',compact('arts'));
+
+        return view('CreerPub',compact('arts'));
     }
 
     /**
@@ -40,51 +39,27 @@ class AjouterCibleController extends Controller
      */
     public function store(Request $request)
     {
-
-            $creat = new Cible_routage;
-                $rq=$request->all();
-
-
-            if($rq['age'] != NULL)
-            {
-
-                $creat->age = $request['age'];
-            }
-            if($rq['adress'] != NULL)
-            {
-                $creat->adress = $request['adress'];
-            }
-            if($rq['categori'] != NULL)
-            {
-                $creat->socio_pro = $request['categori'];
-            }
-
-            try
-            {
-                $creat->etat = "en attente";
-                $creat->save();
-
-            }catch (\Exception $exception){
-                return $exception;
-            }
-
-
-
-        foreach ($rq['User'] as $itemelem)
-        {
-
-            $createlem = new individu_cible;
-            $createlem->id_cible = $creat->num_cible;
-            $createlem->id_indevidu = intval($itemelem);
-            try {
-                $createlem->save();
-            }catch (\Exception $exception)
-            {
-                return $exception;
-            }
-
-
+        try {
+            $newpub = new Publicite;
+            $newpub->type_papier = $request->valeur_choisie;
+            $newpub->titre = $request->titre;
+            $newpub->description = $request->contenu;
+            $newpub->save();
+            $id_pub = $newpub->num_pub;
         }
+        catch (\Exception $exception)
+        {
+            return $exception;
+        }
+
+       foreach ($request["User"] as $user)
+       {
+           $newartpub = new article_pub;
+           $newartpub->numéro = intval($user);
+           $newartpub->num_pub = $id_pub ;
+           $newartpub->save();
+       }
+
 
     }
 

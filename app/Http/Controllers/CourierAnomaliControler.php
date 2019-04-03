@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Commande;
 use App\User;
-use App\Cible_routage;
-use App\individu_cible;
-use mysql_xdevapi\Exception;
+use Illuminate\Http\Request;
 
-class AjouterCibleController extends Controller
+class CourierAnomaliControler extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,7 @@ class AjouterCibleController extends Controller
      */
     public function index()
     {
-        $arts = User::all()->where('Fonction','=',null);
-
-        return view('AjouterCible',compact('arts'));
+        //
     }
 
     /**
@@ -40,52 +36,7 @@ class AjouterCibleController extends Controller
      */
     public function store(Request $request)
     {
-
-            $creat = new Cible_routage;
-                $rq=$request->all();
-
-
-            if($rq['age'] != NULL)
-            {
-
-                $creat->age = $request['age'];
-            }
-            if($rq['adress'] != NULL)
-            {
-                $creat->adress = $request['adress'];
-            }
-            if($rq['categori'] != NULL)
-            {
-                $creat->socio_pro = $request['categori'];
-            }
-
-            try
-            {
-                $creat->etat = "en attente";
-                $creat->save();
-
-            }catch (\Exception $exception){
-                return $exception;
-            }
-
-
-
-        foreach ($rq['User'] as $itemelem)
-        {
-
-            $createlem = new individu_cible;
-            $createlem->id_cible = $creat->num_cible;
-            $createlem->id_indevidu = intval($itemelem);
-            try {
-                $createlem->save();
-            }catch (\Exception $exception)
-            {
-                return $exception;
-            }
-
-
-        }
-
+        //
     }
 
     /**
@@ -96,7 +47,9 @@ class AjouterCibleController extends Controller
      */
     public function show($id)
     {
-        //
+        $comme = Commande::find($id);
+        $user = User::find($comme->id_indevidu);
+        return view('EditeAnomalie',compact('user'));
     }
 
     /**

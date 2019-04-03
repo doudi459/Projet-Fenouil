@@ -113,6 +113,7 @@ class ValiderCommandeController extends Controller
         $notification = new Notefication;
 
         $notification->objet = "Commande";
+        $notification->Type = "attente";
         $notification->état = 0;
         $notification->id_indevidu  = Auth::user()->id ;
 

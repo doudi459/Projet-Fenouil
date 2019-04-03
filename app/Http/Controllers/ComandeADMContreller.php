@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Commande;
+use App\Article;
+use App\Commande_Article;
+use ArrayObject;
 use Illuminate\Http\Request;
+use function Sodium\add;
 
 class ComandeADMContreller extends Controller
 {
@@ -13,8 +17,23 @@ class ComandeADMContreller extends Controller
      */
     public function index()
     {
-        $comme = Commande::all()->where('etat_commande', '=','sansanomalie');
-        return view('ComandeADM',compact('comme'));
+        $commes = Commande::all()->where('etat_commande', '=','SansAnomalie');
+        $Arts = [];
+        foreach ($commes as $comme) {
+            $comme_arts = Commande_Article::all()->where('num_commande', '=', $comme->num_commande);
+            $arts = array();
+            foreach ($comme_arts as $art) {
+                $article = Article::all()->where('numéro', '=', $art->numéro);
+
+                array_push($arts,$article);
+            }
+            array_push($Arts,$comme->num_commande,$arts);
+
+
+
+        }
+        //var_dump($Arts[1]);
+        return view('ComandeADM',compact('commes','Arts'));
     }
 
     /**
@@ -46,7 +65,11 @@ class ComandeADMContreller extends Controller
      */
     public function show($id)
     {
-        //
+        $comme = Commande::find($id);
+        $comme->etat_commande = "Validé";
+        $comme->save();
+        redirect('/dashbord/CommandeAD');
+
     }
 
     /**
@@ -57,7 +80,7 @@ class ComandeADMContreller extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use App\Cible_routage;
 use App\individu_cible;
-use mysql_xdevapi\Exception;
+use App\User;
+use Illuminate\Support\Facades\DB;
 
-class AjouterCibleController extends Controller
+class ToutLesCiblecontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,8 @@ class AjouterCibleController extends Controller
      */
     public function index()
     {
-        $arts = User::all()->where('Fonction','=',null);
-
-        return view('AjouterCible',compact('arts'));
+        $arts = Cible_routage::all();
+        return view('ToutLesCible',compact('arts'));
     }
 
     /**
@@ -40,52 +39,7 @@ class AjouterCibleController extends Controller
      */
     public function store(Request $request)
     {
-
-            $creat = new Cible_routage;
-                $rq=$request->all();
-
-
-            if($rq['age'] != NULL)
-            {
-
-                $creat->age = $request['age'];
-            }
-            if($rq['adress'] != NULL)
-            {
-                $creat->adress = $request['adress'];
-            }
-            if($rq['categori'] != NULL)
-            {
-                $creat->socio_pro = $request['categori'];
-            }
-
-            try
-            {
-                $creat->etat = "en attente";
-                $creat->save();
-
-            }catch (\Exception $exception){
-                return $exception;
-            }
-
-
-
-        foreach ($rq['User'] as $itemelem)
-        {
-
-            $createlem = new individu_cible;
-            $createlem->id_cible = $creat->num_cible;
-            $createlem->id_indevidu = intval($itemelem);
-            try {
-                $createlem->save();
-            }catch (\Exception $exception)
-            {
-                return $exception;
-            }
-
-
-        }
-
+        //
     }
 
     /**
@@ -96,7 +50,24 @@ class AjouterCibleController extends Controller
      */
     public function show($id)
     {
-        //
+
+        try {
+            $users = individu_cible::all()->where("id_cible", "=", $id);
+            $alluser = [];
+            foreach ($users as $user) {
+                $use = User::find($user->id_indevidu);
+                array_push($alluser, $use);
+
+            }
+        }
+        catch (\Exception $exception)
+        {
+            return $exception;
+        }
+       return $alluser;
+
+
+
     }
 
     /**
@@ -119,7 +90,23 @@ class AjouterCibleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $type =$request->_method;
+
+
+        if($type == "PUT")
+        {
+            $cible = Cible_routage::find($id);
+            $cible->etat = "Accepté";
+            $cible->save();
+        }
+        if($type == "PATCH")
+        {
+
+            $cible = Cible_routage::find($id);
+            $cible->etat = "Refusé";
+            $cible->save();
+        }
+        return redirect("/dashbord/ToutLesCible/");
     }
 
     /**
@@ -130,6 +117,9 @@ class AjouterCibleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::delete('DELETE FROM `individu_cible` WHERE id_cible = ? ',[$id]);
+        $cible = Cible_routage::find($id);
+        $cible->delete();
+        return redirect("/dashbord/ToutLesCible/");
     }
 }

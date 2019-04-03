@@ -158,7 +158,7 @@
 
 
     </div>
-</div>
+</div> <!--Cart credit -->
 
 <div id="myModal" class="modal dropdown animated zoomIn col-md-3 col-md-offset-4" style="top: 150px; margin-left: 37%;">
 
@@ -184,7 +184,7 @@
 
         </div>
     </div>
-</div>
+</div> <!--  chéque -->
 
 
 

@@ -62,11 +62,8 @@ Route::get('/Bricolage', function () {
 
 Route::delete('/ValidéCommande/{id}', 'ValiderCommandeController@destroy');
 Route::put('/ValidéCommande/{id}', 'ValiderCommandeController@update');
-Route::get('/ToutLesCible', function () {
 
-    $arts = Cible_routage::all();
-    return view('ToutLesCible',compact('arts'));
-})->name('ToutLesCible');
+
 
 //**********************************************************************************************************************
 
@@ -75,9 +72,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/ValidéCommande','ValiderCommandeController')->except('destroy','update');
     Route::resource('/allArt', 'AllArtController');
     Route::resource('/NewArt', 'ArticleController');
-    Route::resource('/dashbord/NewCible','AjouterCibleController');
+    Route::resource('/dashbord/ToutLesCible','ToutLesCiblecontroller');
     Route::resource('/dashbord/NewCible','AjouterCibleController');
     Route::resource('/dashbord/CommandeAD','ComandeADMContreller');
+    Route::resource('/dashbord/anomalie','AnomalieController');
+    Route::resource('/dashbord/editanomali','EditeAnomaliController');
+    Route::resource('/dashbord/CreatPub','PubCreateControler');
+
 });
 //**********************************************************************************************************************
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Login Fenouil</title>
     <link href="images/fenouil.png" rel="shortcut icon" type="image/x-icon" />
